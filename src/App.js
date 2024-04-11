@@ -4,22 +4,22 @@ import logo from './assets/Logo.png';  // Replace 'logo.png' with the path to yo
 function useAutoResize(ref) {
   useEffect(() => {
     const adjustHeight = () => {
-      const reff = ref.current;
-      if (reff) {
-        reff.style.height = 'inherit'; // Reset height to recalibrate
-        reff.style.height = `${reff.scrollHeight}px`; // Set height to scroll height
+      if (ref.current) {
+        const currentRef = ref.current; // Capture ref.current in a local variable
+        currentRef.style.height = 'inherit'; // Reset height to recalibrate
+        currentRef.style.height = `${currentRef.scrollHeight}px`; // Set height to scroll height
       }
     };
-    if (reff) {
+    if (ref.current) {
       adjustHeight();
-      reff.addEventListener('input', adjustHeight);
+      ref.current.addEventListener('input', adjustHeight);
     }
     return () => {
-      if (reff) {
-        reff.removeEventListener('input', adjustHeight);
+      if (ref.current) {
+        ref.current.removeEventListener('input', adjustHeight);
       }
     };
-  }, [ref]); // Runs only once on mount and unmount unless ref changes
+  }, [ref.current]); // Dependency array now includes ref.current
 }
 
 function App() {
