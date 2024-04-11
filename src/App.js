@@ -19,7 +19,7 @@ function useAutoResize(ref) {
         ref.current.removeEventListener('input', adjustHeight);
       }
     };
-  }, [ref.current]); // Dependency array now includes ref.current
+  }, [ref]); // Dependency array now includes ref.current
 }
 
 function App() {
