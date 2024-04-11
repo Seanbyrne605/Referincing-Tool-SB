@@ -4,18 +4,19 @@ import logo from './assets/Logo.png';  // Replace 'logo.png' with the path to yo
 function useAutoResize(ref) {
   useEffect(() => {
     const adjustHeight = () => {
-      if (ref.current) {
-        ref.current.style.height = 'inherit'; // Reset height to recalibrate
-        ref.current.style.height = `${ref.current.scrollHeight}px`; // Set height to scroll height
+      const reff = reff;
+      if (reff) {
+        reff.style.height = 'inherit'; // Reset height to recalibrate
+        reff.style.height = `${reff.scrollHeight}px`; // Set height to scroll height
       }
     };
-    if (ref.current) {
+    if (reff) {
       adjustHeight();
-      ref.current.addEventListener('input', adjustHeight);
+      reff.addEventListener('input', adjustHeight);
     }
     return () => {
-      if (ref.current) {
-        ref.current.removeEventListener('input', adjustHeight);
+      if (reff) {
+        reff.removeEventListener('input', adjustHeight);
       }
     };
   }, [ref]); // Runs only once on mount and unmount unless ref changes
@@ -56,7 +57,7 @@ function App() {
 
   const handleSortReferences = () => {
     // Get the input value and split it into an array of references
-    const inputReferences = inputRef.current.value.split('\n');
+    const inputReferences = inputreff.value.split('\n');
 
     // Sort the references alphabetically
     const sortedReferences = inputReferences.sort();
@@ -65,7 +66,7 @@ function App() {
     const sortedReferencesString = sortedReferences.join('\n');
 
     // Update the output textarea with the sorted references
-    outputRef.current.value = sortedReferencesString;
+    outputreff.value = sortedReferencesString;
   };
 
   return (
