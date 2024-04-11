@@ -4,7 +4,7 @@ import logo from './assets/Logo.png';  // Replace 'logo.png' with the path to yo
 function useAutoResize(ref) {
   useEffect(() => {
     const adjustHeight = () => {
-      const reff = reff;
+      const reff = ref.current;
       if (reff) {
         reff.style.height = 'inherit'; // Reset height to recalibrate
         reff.style.height = `${reff.scrollHeight}px`; // Set height to scroll height
@@ -57,7 +57,7 @@ function App() {
 
   const handleSortReferences = () => {
     // Get the input value and split it into an array of references
-    const inputReferences = inputreff.value.split('\n');
+    const inputReferences = inputRef.current.value.split('\n');
 
     // Sort the references alphabetically
     const sortedReferences = inputReferences.sort();
@@ -66,7 +66,7 @@ function App() {
     const sortedReferencesString = sortedReferences.join('\n');
 
     // Update the output textarea with the sorted references
-    outputreff.value = sortedReferencesString;
+    outputRef.current.value = sortedReferencesString;
   };
 
   return (
