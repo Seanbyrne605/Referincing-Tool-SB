@@ -61,6 +61,7 @@ function App() {
 
     // Sort the references alphabetically
     const sortedReferences = inputReferences.sort();
+    outputRef.style.height = inputRef.style.height;
 
     // Join the sorted references back into a single string with line breaks
     const sortedReferencesString = sortedReferences.join('\n');
